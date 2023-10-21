@@ -119,17 +119,17 @@ Both the model have same predictions when taking all features and only the impot
 
 --> We will create XGBoost model with all features and important features and compare their performance
 
-![Alt text](image-5.png)
+![Alt text](image-8.png)
 
 --> Looking at the same evaluation matrics we looked for previous model, we can see that the XGBoost model with significant features is performing better than the model with all features.
 
 ## Comparing the Logistic Regression and XGBoost model
 
-![Alt text](image-6.png)
+![Alt text](image-9.png)
 
-Both the Models are giving same performance.
+As we can see Logistic Regression is performing better than XGBoost but we can't just ignore the XGBoost completely as it might be usefull as well
 
---> The Model to select depends on the business needs
+--> The Model selection depends on the business needs
 
 (1) Interpretability: Logistic Regression models are generally more interpretable than complex models like XGBoost. If model interpretability is a crucial requirement for our application, we might prefer Logistic Regression.
 
