@@ -42,11 +42,6 @@ at least 21 years old of Pima Indian heritage.
 
 ---> our data is not normally distributed.
 
----> we will create a statistical regression model to check the significant between features(independent variables) and target(dependent) variable
-
-![Alt text](image-3.png)
-
----> As seen some features are not significant with the target variable but we will consider them during Prediction Model and compare the performance with all features and only significant features.
 
 
 ## Preprocessing and Feature Engineering
@@ -55,7 +50,7 @@ at least 21 years old of Pima Indian heritage.
 
 ---> First we will take all the features we have in our Data and create model
 
----> Then we will take only the important features(Significant features froms stat model
+---> Then we will take only the important features(Clinically Significant features)
 
 ---> We will compare models in both the cases and see which performs better
 
@@ -63,7 +58,7 @@ at least 21 years old of Pima Indian heritage.
 
 ---> We are scaling our data usin StandardScaler which is a feature scaling technique used to standardize the features of dataset. Scaling features contribute equally to model as the features in our dataset may have different units and scales. It prevents features with larger scales to dominate the model.
 
----> We are scaling All features and also important features(excluding BloodPressure and SkinThickness)
+---> We are scaling All features and also important features
 
 ## Training the Model
 
@@ -81,53 +76,58 @@ at least 21 years old of Pima Indian heritage.
 
 ---> Train the model on Scaled Training Set and do prediction on Test Set
 
----> Now we will compare the model for all features and significant feature
+Interpreting model
 
-![Alt text](image-4.png)
+First interpreting confusion matrix
 
---> Interpreting model
+confusion_matrix_all_features
 
---> First interpreting confusion metrics
+![Alt text](image-11.png)
 
-Lets take a look at confusion metrics first as it will give an clear idea for all other Score that we will take Actual Positive and negative are the actually values for the Outcome from our test data.
+confusion_matrix_imp_features
+
+![Alt text](image-12.png)
+
+Lets take a look at confusion matrix first as it will give an clear idea for all other Score that we will take Actual Positive and negative are the actually values for the Outcome from our test data.
 
 Prediction values are the values that our model predicted
 
-(1) True Negative: The value model predicted has no diabetes(0) and it was correct : 89
+(1) True Negative: The value model predicted has no diabetes(0) and it was correct
 
-(2) True Positive: The value model predicted has diabetes(1) and it was correct: 27
+(2) True Positive: The value model predicted has diabetes(1) and it was correct
 
-(3) False Negative: The value that model falsely precticed as no diabetes(0) but actually it was diabetes(1) : 16
+(3) False Negative: The value that model falsely precticed as no diabetes(0) but actually it was diabetes(1)
 
-(4) False Positive: The value that model falsely precited as diabetes(1) but actually it was no diabetes(0) : 13
+(4) False Positive: The value that model falsely precited as diabetes(1) but actually it was no diabetes(0)
 
-We are comparing the model performance when we considered all features and only important features for logistic regression model
+For our insight it is really important to get both the No Diabetes(0) and Diabetes(0) correct as Patients needs to be correctly diagnose.
 
-Accuracy score shows that model can predict 80 percent of the Test Samples correctly
+We will take accuracy in consideration
 
-Precision score is the fraction of predicted positive or negative events that are actually correct.
+Model with Clinically significant features have better accuracy (81 percent) then Model with all features(80 Percent)
 
-For no diabetes it has 85 percent of presicion and for diabetes it is 68 percent.
-
-Recall is the fraction of positive or negative events that we predicted correctly
-
-for no diabetes it has 87 percent of Recall and 63 percent for diabetes
-Confusion metrics is same for both the models
-Both the model have same predictions when taking all features and only the impotant ones
 
 ## XGBoost Model
 
 --> We will create XGBoost model with all features and important features and compare their performance
 
-![Alt text](image-8.png)
+confusion_matrix_all_features
 
---> Looking at the same evaluation matrics we looked for previous model, we can see that the XGBoost model with significant features is performing better than the model with all features.
+![Alt text](image-10.png)
+
+confusion_matrix_imp_features
+
+![Alt text](image-13.png)
+
+
+For XGBoost both the models have 77 percent accuracy
+
 
 ## Comparing the Logistic Regression and XGBoost model
 
-![Alt text](image-9.png)
+![Alt text](image-14.png)
 
-As we can see Logistic Regression is performing better than XGBoost but we can't just ignore the XGBoost completely as it might be usefull as well
+Logistic Regression is performing better than XGBoost but we can't just ignore the XGBoost completely as it might be usefull as well
 
 --> The Model selection depends on the business needs
 
