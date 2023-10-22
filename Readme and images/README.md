@@ -136,3 +136,13 @@ Logistic Regression is performing better than XGBoost but we can't just ignore t
 (2) Computational Resources: XGBoost is a more complex and resource-intensive model compared to Logistic Regression. we should consider available computational resources, especially if our plan to deploy the model in a resource-constrained environment.
 
 (3) Scalability: XGBoost is used for large datasets and complex problems. If our data for prodution is usually large and the problem is challenging, XGBoost might be a better choice for scalability and performance.
+
+## Few Insights
+
+(1) From our EDA and Modelling our sample has majority of Outcome that is with no diabetes.
+
+(2) Insulin and Skinthickness had almost half of the values as null, we replaced the zeros with the mean values of the features, if we had more complete for some variables results might have been better
+
+(3) Logistics Regression Model gives out the better result than XGBoost model in terms of accuracy.
+
+(3) Selecting the Model also depends on the businees needs and we might select the model based on which outcome we give importance to
